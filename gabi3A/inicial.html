@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loopy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <img src="logo.jpg" class="side-logo" alt="logo">  
+
+<button class="side-btn" onclick="openScreen('home')">
+    <img src="casa1.jpg" alt="Home">
+</button>
+
+<button class="side-btn" onclick="openScreen('cronograma')">
+    <img src="cronograma1.jpg" alt="Cronograma">
+</button>
+
+<button class="side-btn" onclick="openScreen('calendario')">
+    <img src="calendario1.jpg" alt="Calendário">
+</button>
+
+<button class="side-btn" onclick="openScreen('cadernos')">
+    <img src="caderno1.jpg" alt="Cadernos Digitais">
+</button>
+
+<button class="side-btn" onclick="openScreen('oque')">
+    <img src="oque1.jpg" alt="O que é o Loopy">
+</button>
+
+<button class="side-btn" onclick="openScreen('configuracoes')">
+    <img src="config1.jpg" alt="Configurações">
+</button>
+  </aside>
+
+  <main id="main-content">
+    <section id="home" class="screen active">
+      <div class="home-container">
+        <div class="date-card">
+          <h1 id="day">11</h1>
+          <p id="month">Dezembro</p>
+          <span>hoje</span>
+        </div>
+
+        <div class="welcome">
+          <h2>Olá, Usuário!</h2>
+          <h1>SEJA BEM-VINDO AO LOOPY</h1>
+        </div>
+
+        <div class="menu-grid">
+          <div class="menu-box" onclick="openScreen('calendario')">
+            <h3>calendário</h3>
+          </div>
+
+          <div class="menu-box" onclick="openScreen('cronograma')">
+            <h3>como começar?</h3>
+          </div>
+
+          <div class="menu-box" onclick="openScreen('oque')">
+    <h3>O que é Loopy?</h3>
+      </div>
+       
+    </section>
+
+    <section id="calendario" class="screen hidden">
+      <h1 class="title">calendário</h1>
+
+      <div class="important-box">
+        <h2>Datas importantes</h2>
+        <textarea id="importantText" placeholder="Adicione datas importantes..."></textarea>
+      </div>
+
+      <div class="calendar-wrapper">
+        <div class="calendar-header">
+          <button onclick="prevMonth()" class="nav-btn">◀</button>
+          <h2 id="monthYear"></h2>
+          <button onclick="nextMonth()" class="nav-btn">▶</button>
+        </div>
+        <div class="weekdays">
+  <div>Dom</div>
+  <div>Seg</div>
+  <div>Ter</div>
+  <div>Qua</div>
+  <div>Qui</div>
+  <div>Sex</div>
+  <div>Sab</div>
+</div>
+        <div id="calendar" class="calendar"></div>
+      </div>
+
+      <button class="back-btn" onclick="openScreen('home')">Voltar</button>
+    </section>
+
+    <section id="cronograma" class="screen hidden">
+      <h1 class="title">cronograma</h1>
+      <div class="cron-grid">
+        
+        <div class="card-dia" data-dia="Terça-feira 09">
+    <h2>Terça-feira 09</h2>
+
+    <div class="tarefas"></div>
+
+    <input class="input-tarefa" type="text" placeholder="Adicionar tarefa">
+    <button class="btn-add" data-dia="Terça-feira 09">+</button>
+</div>
+        
+        <div class="card-dia" data-dia="Quarta-feira 10">
+    <h2>Quarta-feira 10</h2>
+
+    <div class="tarefas"></div>
+
+    <input class="input-tarefa" type="text" placeholder="Adicionar tarefa">
+    <button class="btn-add" data-dia="Quarta-feira 10">+</button>
+</div>
+       
+         <div class="card-dia" data-dia="Quinta-feira 11">
+    <h2>Quinta-feira 11</h2>
+
+    <div class="tarefas"></div>
+
+    <input class="input-tarefa" type="text" placeholder="Adicionar tarefa">
+    <button class="btn-add" data-dia="Quinta-feira 11">+</button>
+</div>
+        
+         <div class="card-dia" data-dia="Sexta-feira 12">
+    <h2>Quinta-feira 12</h2>
+
+    <div class="tarefas"></div>
+
+    <input class="input-tarefa" type="text" placeholder="Adicionar tarefa">
+    <button class="btn-add" data-dia="Quinta-feira 12">+</button>
+</div>
+
+      <button class="back-btn" onclick="openScreen('home')">Voltar</button>
+    </section>
+
+    <section id="oque" class="screen">
+      <h1 class="title">O que é Loopy?</h1>
+      <div class="text-box">
+        <p>
+          Loopy é um site criado para ser um cronograma de estudos. Ele surgiu como um projeto escolar na ETE José Joaquim da Silva Filho.
+
+"De onde surgiu esse nome?", "Por que essa logo? E essas cores?" Bom, vamos lá:
+
+Seu nome vem da palavra loop, e o "y" fol acrescentado apenas para deixá-lo mais bonito. Sua logo é baseada no simbolo do infinito, que representa um loop. Esse design pode simbolizar "ciclos intermináveis" e as infinitas maneiras e opções de estudo.
+
+As cores foram escolhidas cuidadosamente para despertar emoções e sentimentos específicos, como otimismo, felicidade, inspiração, entusiasmo e confiabilidade.
+        </p>
+      </div>
+      <button class="back-btn" onclick="openScreen('home')">Voltar</button>
+    </section>
+ 
+<!-- TELA CONFIGURAÇÕES -->
+<section id="configuracoes" class="screen hidden">
+    <h1 class="titulo">Configurações</h1>
+
+    <div class="config-list">
+
+        <div class="config-item">
+            <img src="cadeado.jpg" class="config-icon">
+            <span>Segurança</span>
+            <span class="seta">></span>
+        </div>
+
+        <div class="config-item">
+            <img src="idioma.jpg" class="config-icon">
+            <span>Idioma</span>
+            <span class="seta">></span>
+        </div>
+
+        <div class="config-item">
+            <img src="dtehr.jpg" class="config-icon">
+            <span>Data e horário</span>
+            <span class="seta">></span>
+        </div>
+
+        <div class="config-item">
+            <img src="ajuda.jpg" class="config-icon">
+            <span>Ajuda</span>
+            <span class="seta">></span>
+        </div>
+
+        <div class="config-item">
+            <img src="lixo.jpg" class="config-icon">
+            <span>Sair</span>
+            <span class="seta">></span>
+        </div>
+
+    </div>
+</section>
+
+<!-- TELA CADERNOS DIGITAIS -->
+<section id="cadernos" class="screen hidden cadernos-wrapper">
+  <h1 class="titulo">Diários Digitais</h1>
+
+  <div class="cadernos-top">
+    <button id="novoCadernoBtn" class="btn-novo">Criar novo caderno</button>
+    <input id="buscarCaderno" type="search" placeholder="Buscar..." />
+  </div>
+
+  <div id="listaCadernos" class="caderno-container">
+    <!-- lista de cadernos: cada caderno = 1 nota -->
+  </div>
+
+  <!-- Editor-->
+  <div id="editorCaderno" class="editor hidden">
+    <div class="editor-head">
+      <button id="voltarBtn" class="btn-voltar">← Voltar</button>
+      <button id="deletarBtn" class="btn-delete">Excluir</button>
+    </div>
+
+    <input id="tituloCaderno" class="titulo-input" placeholder="Título do caderno" />
+    <textarea id="textoCaderno" class="area-texto" placeholder="Escreva aqui..."></textarea>
+  </div>
+</section>
+  <script src="script.js"></script>
+</main>
+</body> 
+</html>
